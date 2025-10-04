@@ -1,4 +1,4 @@
-/* Reset default margins and set up full-page flex layout */
+/* Full-page flex layout to center content */
 body {
     margin: 0;
     padding: 0;
@@ -19,7 +19,7 @@ body {
 input[type="text"] {
     width: 500px;
     padding: 12px 20px;
-    border: 1px solid #ccc;
+    border: 1px solid #dcdcdc;
     border-radius: 24px;
     font-size: 16px;
     box-shadow: 0 1px 6px rgba(32, 33, 36, 0.28);
