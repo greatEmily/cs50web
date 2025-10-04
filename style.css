@@ -1,21 +1,17 @@
-/* Full-page flex layout to center content */
-body {
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
+/* Full-page wrapper to center content vertically and horizontally */
+.page-wrapper {
     height: 100vh;
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
 }
 
-/* Container for search form */
+/* Center the form contents */
 .search-container {
     text-align: center;
 }
 
-/* Search input field */
+/* Search input styling */
 input[type="text"] {
     width: 500px;
     padding: 12px 20px;
@@ -26,7 +22,7 @@ input[type="text"] {
     outline: none;
 }
 
-/* Search button */
+/* Search button styling */
 input[type="submit"] {
     margin-top: 20px;
     padding: 10px 20px;
