@@ -1,3 +1,15 @@
-.search-container {
-    float: right;
+body {
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; /* if you have multiple elements stacked */
+    padding: 20px;
 }
