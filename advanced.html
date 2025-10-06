@@ -2,12 +2,28 @@
 <html lang="en">
     <head>
         <title>Search</title>
+        <link rel="stylesheet" href="style.css">
     </head>
     <body>
-        <form action="https://www.google.com/search">
-            <input type="text" name="q">
-            <input type="submit" value="Google Search">
-        </form>
+            <form class="advanced-form" action="https://www.google.com/advanced_search">
+                <input type="hidden" name="tbm" value="isch">
+                <div class="form-group">
+                    <label for="all_words">all these words:</label>
+                    <input type="text" id="all_words" name="as_q">
+                </div>
+                <div class="form-group">
+                    <label for="exact_words">this exact word or phrase:</label>                
+                    <input type="text" id="exact_words" name="as_epq">
+                </div>
+                    <label for="any_words">any of these words:</label>                                
+                    <input type="text" name="as_oq" id="any_words">
+                <div class="form-group">
+                    <label for="no_words">none of these words:</label>
+                    <input type="text" name="as_eq" id="no_words">
+                </div>
+                    <input type="submit" value="Advanced Search" class="advanced-btn">
+                </div>
+            </form>
         
         <div style="position: absolute; top: 10px; right: 10px;">
         <a href="index.html">Back to Google Search</a>
