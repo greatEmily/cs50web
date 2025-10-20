@@ -4,10 +4,18 @@ from . import util
 
 import markdown2
 
+from django import forms
+
+import random
+
 #from django.http import HttpResponse
 
 #def test_entry(request, title):
     #return HttpResponse(f"Title received: {title}")
+
+class NewEntryForm(forms.Form):
+    title = forms.CharField(label="Title")
+    content = forms.CharField(widget=forms.Textarea, label="Content")
 
 def entry(request, title):
     content = util.get_entry(title)
@@ -40,3 +48,53 @@ def search(request):
         "query": query,
         "results": results
     })
+
+
+def create(request):
+    if request.method == "POST":
+        form = NewEntryForm(request.POST)
+        if form.is_valid():
+            title = form.cleaned_data["title"]
+            content = form.cleaned_data["content"]
+
+            if util.get_entry(title):
+                return render(request, "encyclopedia/error.html", {
+                    "message": "An entry with this title already exists."
+                })
+
+            util.save_entry(title, content)
+            return redirect(f"/wiki/{title}")
+    else:
+        form = NewEntryForm()
+
+    return render(request, "encyclopedia/create.html", {
+        "form": form
+    })
+
+def edit(request, title):
+    if request.method == "POST":
+        content = request.POST.get("content")
+        util.save_entry(title, content)
+        return redirect("entry", title=title)
+
+    content = util.get_entry(title)
+    if content is None:
+        return render(request, "encyclopedia/error.html", {
+            "message": "The requested page was not found."
+        })
+
+    return render(request, "encyclopedia/edit.html", {
+        "title": title,
+        "content": content
+    })
+
+
+def random_page(request):
+    entries = util.list_entries()
+    if entries:
+        title = random.choice(entries)
+        return redirect("entry", title=title)
+    else:
+        return render(request, "encyclopedia/error.html", {
+            "message": "No entries available."
+        })
