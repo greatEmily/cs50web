@@ -27,12 +27,40 @@ textarea {
     line-height: 15px;
 }
 
+/* Sidebar container */
 .sidebar {
     background-color: #f0f0f0;
-    height: 100vh;
-    padding: 20px;
+    width: 300px;
+    padding: 16px 16px 16px 32px; /* top, right, bottom, left */
+    min-height: 100vh;
 }
 
+/* Sidebar heading */
 .sidebar h2 {
-    margin-top: 5px;
+    margin-top: 0;
+}
+
+.sidebar-search {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 16px;
+}
+
+.sidebar-search input[type="text"] {
+    flex: 1;
+    max-width: 140px;
+    padding: 4px 6px;
+    font-size: 0.9em;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.sidebar-search button {
+    padding: 4px 8px;
+    font-size: 0.9em;
+    background-color: #eee;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    cursor: pointer;
 }
